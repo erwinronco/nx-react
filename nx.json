@@ -11,12 +11,17 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "OTk3Nzk0MWItMzEzNC00NDJiLWExY2MtMjM2MWJlZGEyM2U2fHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
     }
   },
   "projects": {
-    "test": { "tags": [] },
-    "test-e2e": { "tags": [], "implicitDependencies": ["test"] }
+    "store": { "tags": [] },
+    "store-e2e": { "tags": [], "implicitDependencies": ["store"] }
   }
 }

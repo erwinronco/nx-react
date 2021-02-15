@@ -19,24 +19,31 @@
       }
     }
   },
-  "defaultProject": "test",
+  "defaultProject": "store",
   "projects": {
-    "test": {
-      "root": "apps/test",
-      "sourceRoot": "apps/test/src",
+    "store": {
+      "root": "apps/store",
+      "sourceRoot": "apps/store/src",
       "projectType": "application",
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
-            "outputPath": "dist/apps/test",
-            "index": "apps/test/src/index.html",
-            "main": "apps/test/src/main.tsx",
-            "polyfills": "apps/test/src/polyfills.ts",
-            "tsConfig": "apps/test/tsconfig.app.json",
-            "assets": ["apps/test/src/favicon.ico", "apps/test/src/assets"],
-            "styles": ["apps/test/src/styles.scss"],
+            "outputPath": "dist/apps/store",
+            "index": "apps/store/src/index.html",
+            "main": "apps/store/src/main.tsx",
+            "polyfills": "apps/store/src/polyfills.ts",
+            "tsConfig": "apps/store/tsconfig.app.json",
+            "assets": [
+              "apps/store/src/favicon.ico",
+              "apps/store/src/assets"
+            ],
+            "styles": [
+              "apps/store/src/styles.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -44,8 +51,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/test/src/environments/environment.ts",
-                  "with": "apps/test/src/environments/environment.prod.ts"
+                  "replace": "apps/store/src/environments/environment.ts",
+                  "with": "apps/store/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -68,52 +75,58 @@
         "serve": {
           "executor": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "test:build"
+            "buildTarget": "store:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "test:build:production"
+              "buildTarget": "store:build:production"
             }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/test/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/store/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/test"],
+          "outputs": [
+            "coverage/apps/store"
+          ],
           "options": {
-            "jestConfig": "apps/test/jest.config.js",
+            "jestConfig": "apps/store/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "test-e2e": {
-      "root": "apps/test-e2e",
-      "sourceRoot": "apps/test-e2e/src",
+    "store-e2e": {
+      "root": "apps/store-e2e",
+      "sourceRoot": "apps/store-e2e/src",
       "projectType": "application",
       "targets": {
         "e2e": {
           "executor": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/test-e2e/cypress.json",
-            "tsConfig": "apps/test-e2e/tsconfig.e2e.json",
-            "devServerTarget": "test:serve"
+            "cypressConfig": "apps/store-e2e/cypress.json",
+            "tsConfig": "apps/store-e2e/tsconfig.e2e.json",
+            "devServerTarget": "store:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "test:serve:production"
+              "devServerTarget": "store:serve:production"
             }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/test-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/store-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
